@@ -1,0 +1,30 @@
+{% extends 'ledger/layout.html' %}
+{% load static %}
+
+{% block title %}
+Categories
+{% endblock %}
+
+{% block body %}
+<div class="new_category my-2">
+    <button class="btn btn-primary new_category_button" type="button">New Category</button>
+    <div class="form-group new_category_form my-2">
+        <form action="{% url 'categories' %}" method="post">
+            {% csrf_token %}
+            <label for="new_category_input" class="form-label">Category Name</label>
+            <input type="text" name="category_name" class="form-control" id="new_category_input" required>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+</div>
+{% for category in categories %}
+<div class="categories">
+    <a href="#" class="link-dark">{{ category.category_name }}</a>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'ledger/script.js' %}"></script>
+    <script src="{% static 'ledger/categories.js' %}"></script>
+{% endblock %}

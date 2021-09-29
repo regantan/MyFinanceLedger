@@ -1,0 +1,18 @@
+{% extends "ledger/layout.html" %}
+
+{% block title %}
+New Transaction
+{% endblock %}
+
+{% block body %}
+<div>
+    <form action="{% url 'new_transaction' %}" method="post">
+        {% csrf_token %}
+
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'ledger/script.js' %}"></script>
+{% endblock %}

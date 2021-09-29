@@ -1,0 +1,18 @@
+{% extends 'ledger/layout.html' %}
+{% load static %}
+
+{% block title %}
+Wallets
+{% endblock %}
+
+{% block body %}
+{% for wallet in wallets %}
+<div class="wallets">
+    <a href="#" class="link-dark">{{ wallet.name }}</a>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'ledger/script.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'ledger/layout.html' %}
+{% load static %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block body %}
+{% if message %}
+<div class="error">{{ message }}</div>
+{% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="InputEmail" class="form-label">Email Address</label>
+            <input type="email" name="email" id="InputEmail" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="InputUsername" class="form-label">Username</label>
+            <input type="text" name="username" id="InputUsername" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="InputPassword" class="form-label">Password</label>
+            <input type="password" name="password" id="InputPassword" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="InputConfirmation" class="form-label">Re-type Password</label>
+            <input type="password" name="confirmation" id="InputConfirmation" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Create Account</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'ledger/script.js' %}"></script>
+{% endblock %}
