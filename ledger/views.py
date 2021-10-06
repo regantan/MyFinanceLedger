@@ -72,7 +72,7 @@ def register(request):
         ]
         
         for category in categories:
-            set_category = Category(category=category, user=user)
+            set_category = Category(category_name=category, user=user)
             set_category.save()
         
         set_wallet = Wallet(name="Debit Card", owner=user)
@@ -87,6 +87,7 @@ def new_transaction(request):
     if request.method == "GET":
         return render(request, "ledger/new_transaction.html")
     
+@login_required(login_url="/login/")
 def categories(request):
     if request.method == "GET":
         categories = Category.objects.filter(user=request.user)
@@ -98,7 +99,8 @@ def categories(request):
         new_category = Category(category_name=name, user=request.user)
         new_category.save()
         return HttpResponseRedirect(reverse("categories"))
-        
+
+@login_required(login_url="/login/")
 def wallets(request):
     if request.method == "GET":
         wallets = Wallet.objects.filter(owner=request.user)

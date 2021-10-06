@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block title %}
-MyFinanceLedger
+MyFinanceLedger: {{user.username}}
 {% endblock %}
 
 {% block body %}
 {% if not user.is_authenticated %}
 <hr class="my-4">
-<h4>Please register for a new account <a href="{% url 'register' %}" class="link-primary">here</a> or login <a href="{% url 'login' %}" class="link-primary">here</a>.</h3>
+<h4>Please register for a new account <a href="{% url 'register' %}" class="link-primary">here</a> or login <a href="{% url 'login' %}" id="login" class="link-primary">here</a>.</h3>
 {% endif %}
 {% endblock %}
 

@@ -7,7 +7,7 @@ Categories
 
 {% block body %}
 <div class="new_category my-2">
-    <button class="btn btn-primary new_category_button" type="button">New Category</button>
+    <button class="btn btn-primary new_category_button" id="new_category_button" type="button">New Category</button>
     <div class="form-group new_category_form my-2">
         <form action="{% url 'categories' %}" method="post">
             {% csrf_token %}

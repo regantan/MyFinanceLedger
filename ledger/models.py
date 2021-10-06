@@ -18,7 +18,7 @@ class Category(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE, related_name="get_category_user")
     
     def __str__(self):
-        return f"{self.category} by {self.user}"
+        return f"{self.category_name} by {self.user}"
     
 class Transaction(models.Model):
     TRANSACTION_TYPE = (
